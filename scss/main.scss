@@ -1,0 +1,204 @@
+@font-face {
+  src: url(../font/Poppins-Regular.ttf);
+  font-family: poppins;
+}
+@font-face {
+  src: url(../font/Montserrat-VariableFont_wght.ttf);
+  font-family: monst;
+  font-weight: 500;
+}
+
+//Varibales
+$background-color: #e3f2fd;
+$Second-background-color: #a1b9ca;
+$white: #fff;
+$border-color: #ced3d6;
+$main-color: #2d5e81;
+
+//mixin
+@mixin center($dir: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $dir;
+}
+html {
+  font-family: poppins;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: $background-color;
+}
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  @include center(column);
+
+  #{&}--search {
+    width: 500px;
+    height: 220px;
+    @include center(column);
+
+    h2 {
+      font-size: 28px;
+      text-transform: capitalize;
+      padding-bottom: 5px;
+    }
+    p {
+      padding-bottom: 8px;
+      text: {
+        decoration: none;
+        transform: capitalize;
+      }
+    }
+    .cont-sear {
+      @include center();
+      width: 100%;
+      height: 60px;
+      background-color: $white;
+      padding-inline: 15px;
+      border: 1px solid $border-color;
+      border-radius: 5px;
+      padding-block: 5px;
+
+      img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        margin-right: 8px;
+      }
+      input {
+        width: calc(100% - 42px);
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        font-family: poppins;
+        outline: none;
+      }
+    }
+    .search-btn {
+      width: 100%;
+      height: 150px;
+      margin-top: 5px;
+      @include center(column);
+
+      .btn {
+        padding: 5px 0;
+        width: 210px;
+        border: 1px solid $main-color;
+        background-color: $main-color;
+        cursor: pointer;
+        border-radius: 3px;
+        color: $white;
+        font-family: poppins;
+        margin-block: 5px;
+        margin-inline: 5px;
+        text-transform: capitalize;
+      }
+      .cont {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid #89b3d1;
+        margin-block: 15px;
+        @include center();
+      }
+      .cont::before {
+        content: "or";
+        padding: 0 15px;
+        background-color: #e3f2fd;
+      }
+    }
+  }
+  #{&}--day {
+    width: 800px;
+    height: 200px;
+    background-color: #89b3d1;
+    margin-block: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    @include center();
+
+    .main {
+      width: 50%;
+      height: 100%;
+      @include center();
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      p {
+        margin-left: 10px;
+        font-size: 28px;
+      }
+    }
+    .supm {
+      @include center();
+      flex-wrap: wrap;
+      width: 50%;
+      height: 100%;
+
+      .item {
+        width: 98px;
+        height: 70px;
+        margin: 5px;
+
+        p {
+          text-transform: uppercase;
+          text-align: center;
+          font-family: monst;
+        }
+        span {
+          font-size: 26px;
+          padding-left: 33px;
+        }
+      }
+    }
+  }
+  #{&}--sevenday {
+    width: 1000px;
+    height: 180px;
+    @include center(column);
+
+    h3 {
+      padding: 5px 0;
+      font-size: 18px;
+      font-family: poppins;
+      align-self: flex-start;
+    }
+    .seven {
+      width: 100%;
+      @include center();
+    }
+    .card {
+      width: 110px;
+      height: 130px;
+      border: 3px solid $main-color;
+      border-radius: 8px;
+      margin: 7px;
+
+      img {
+        width: 90px;
+        height: 60px;
+        object-fit: contain;
+        margin-left: 12px;
+      }
+      p {
+        font-size: 17px;
+        text-align: center;
+      }
+      span {
+        font-size: 16px;
+        padding-left: 45px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
